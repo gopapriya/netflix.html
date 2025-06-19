@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Netflix Clone</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .header {
+      background: url('https://cdn.wallpapersafari.com/27/57/aWuX1w.jpg') no-repeat center center/cover;
+      height: 90vh;
+      position: relative;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: red;
+    }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .language-select {
+      background-color: rgba(0,0,0,0.7);
+      border: 1px solid #aaa;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .language-select select {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      appearance: none;
+      outline: none;
+    }
+
+    .sign-in-btn {
+      background-color: #e50914;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      top: 25%;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      margin-bottom: 20px;
+    }
+
+    .email-signup {
+      margin-top: 20px;
+    }
+
+    .email-signup input {
+      padding: 10px;
+      width: 300px;
+      border: none;
+      border-radius: 2px 0 0 2px;
+    }
+
+    .email-signup button {
+      padding: 10px 20px;
+      background-color: red;
+      border: none;
+      color: #fff;
+      border-radius: 0 2px 2px 0;
+      cursor: pointer;
+    }
+
+    .trending-row {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 50px 0;
+    }
+
+    .trend-card {
+      position: relative;
+      min-width: 380px;
+      flex-shrink: 0;
+    }
+
+    .trend-card img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .trend-card img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.5); /* red glow */
+    }
+
+    .trend-card span {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .reasons-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .reason-card {
+      flex: 1 1 240px;
+      background: linear-gradient(145deg, #1b1b29, #2b2b40);
+      border-radius: 20px;
+      padding: 25px;
+      color: white;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+      min-height: 180px;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
+    }
+
+    .reason-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .reason-card p {
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    .reason-card span {
+      position: absolute;
+      bottom: 15px;
+      right: 20px;
+      font-size: 28px;
+      transition: transform 0.3s ease;
+    }
+
+    .reason-card:hover span {
+      transform: scale(1.3);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #111;
+    }
+
+    .footer p {
+      color: #777;
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero h2 {
+        font-size: 1.2rem;
+      }
+      .email-signup input {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="navbar">
+      <div class="logo">NETFLIX</div>
+      <div class="top-right">
+        <div class="language-select">
+          <select>
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+        </div>
+        <button class="sign-in-btn">Sign In</button>
+      </div>
+    </div>
+    <div class="hero">
+      <h1>Unlimited movies, TV shows, and more</h1>
+      <h2>Watch anywhere. Cancel anytime.</h2>
+      <p>Ready to watch? Enter your email to create or restart your membership.</p>
+      <div class="email-signup">
+        <input type="email" placeholder="Email address" />
+        <button>Get Started</button>
+      </div>
+    </div>
+  </div>
+    <section style="padding: 30px; color: rgb(239, 4, 4);">
+        <h2>Trending Now</h2>
+        <div class="trending-row">
+            <div class="trend-card"><img
+                    src="https://dnm.nflximg.net/api/v6/ALnfVbMvPhqZAIuQMLkxmdJcXYk/AAAAQYPxOwvSjztxhcGZE0LNrnWvM-S1jJRvg9Hhrgy8QCxws1VyZMBN3_6HHzQKpX27HLEKsydO6AjBB4Jr9eAKqe04mlzp7T482Y6pV1cV9Tcah7yU3nUWd0lza9Y1tEOGYiBMM5qYulY7UiWdhVyoDj86Uu9Yh2aAAgVNPZ7b_eaJ2Z_5qFg52EEhsDoCcJ_5r74-RL55oBN-6hqg4ufXvKj406nuIN2aKDmbRgP1S49uuMcgoZvhn_e_SwqSfY8AkGgWp44ouNOGX-uQzw.jpg?r=3a5"
+                    style="width: 380px; height: 370px;"><span>1</span></div>
+            <div class="trend-card"><img
+                    src="https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQb_x9BwxzirfmWBblQm8niUgkHwhnhj7PnS6f1zAJVdTtayeYpfb3K08z6-EfM0z2TnnZ4kXzlfzxeR6pwnesLoTl1G4NTCN_BYGMC-xzSbBw93N1c_57bS2cqLigM2ZZjA2xk_dyCySjpYtiMGjxijb.jpg?r=7b4"
+                    style="width: 380px; height: 370px;"><span>2</span></div>
+            <div class="trend-card"><img
+                    src="https://hips.hearstapps.com/hmg-prod/images/best-action-movies-netflix-the-woman-king-64949b61c86b8.jpg?crop=1xw:1xh;center,top&resize=980:*"
+                    style="width: 380px; height: 370px;"><span>3</span></div>
+            <div class="trend-card"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8s_4c3ZcOVulLe0aoasFydWj_IX3OSYi-94JToJhQBgpsdVXU74Nya1Mp--19awGbKdc&usqp=CAU"
+                    style="width: 380px; height: 370px;"><span>4</span></div>
+            <div class="trend-card"><img
+                    src="https://hips.hearstapps.com/hmg-prod/images/best-feel-good-movies-netflix-finding-ohana-1634593873.jpeg"
+                    style="width: 380px; height: 370px;"><span>5</span></div>
+            <div class="trend-card"><img
+                    src="https://images.filmibeat.com/webp/ph-big/2024/11/upcoming-malayalam-ott-releases-on-amazon-prime-netflix-zee5-disneyhotstar-and-more1732351323_0.jpg"
+                    style="width: 380px; height: 370px;"><span>6</span></div>
+        </div>
+  </section>
+
+    <section style="padding: 30px;">
+        <h2 style="color: red; margin-bottom: 20px;">More reasons to join</h2>
+        <div class="reasons-row">
+            <div class="reason-card">
+                <h3>Enjoy on your TV</h3>
+                <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+                <span>📺</span>
+            </div>
+            <div class="reason-card">
+                <h3>Download your shows to watch offline</h3>
+                <p>Save your favourites easily and always have something to watch.</p>
+                <span>📥</span>
+            </div>
+            <div class="reason-card">
+                <h3>Watch everywhere</h3>
+                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+                <span>📱</span>
+            </div>
+            <div class="reason-card">
+                <h3>Create profiles for kids</h3>
+                <p>Send kids on adventures with their favourite characters in a space made just for them.</p>
+                <span>🎭</span>
+            </div>
+        </div>
+  </section>
+
+  <div class="footer">
+    <p>© 2025 Netflix Clone. Designed for educational purposes.</p>
+  </div>
+
+</body>
+</html>
