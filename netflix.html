@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Netflix Clone</title>
   <style>
     * {
@@ -26,8 +27,10 @@
     .header::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.6);
     }
 
@@ -53,7 +56,7 @@
     }
 
     .language-select {
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0, 0, 0, 0.7);
       border: 1px solid #aaa;
       color: #fff;
       padding: 6px 10px;
@@ -146,7 +149,8 @@
 
     .trend-card img:hover {
       transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.5); /* red glow */
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.5);
+      /* red glow */
     }
 
     .trend-card span {
@@ -221,15 +225,172 @@
       .hero h1 {
         font-size: 2rem;
       }
+
       .hero h2 {
         font-size: 1.2rem;
       }
+
       .email-signup input {
         width: 200px;
       }
     }
+
+    .faq-section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      color: white;
+    }
+
+    .faq-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .faq {
+      background-color: #2e2e2e;
+      margin-bottom: 10px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .faq summary {
+      padding: 15px 20px;
+      font-size: 18px;
+      background-color: #333;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      color: #fff;
+    }
+
+    .faq summary::after {
+      content: "+";
+      font-size: 20px;
+      position: absolute;
+      right: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .faq[open] summary::after {
+      content: "−";
+    }
+
+    .faq p {
+      padding: 15px 20px;
+      font-size: 16px;
+      background-color: #1a1a1a;
+      margin: 0;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .footer {
+      background-color: #000;
+      color: #777;
+      padding: 40px 20px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .footer-top p {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .footer-email {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-email input {
+      padding: 12px;
+      width: 300px;
+      border: none;
+      outline: none;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+
+    .footer-email button {
+      padding: 12px 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .footer-call {
+      margin: 30px 0 20px;
+      font-size: 15px;
+      color: #777;
+    }
+
+    .footer-call a {
+      color: #ccc;
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      margin-bottom: 30px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links ul li a {
+      color: #ccc;
+      text-decoration: underline;
+      font-size: 14px;
+    }
+
+    .footer-bottom select {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #111;
+      color: white;
+      border: 1px solid #555;
+      border-radius: 3px;
+    }
+
+    .footer-bottom p {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .footer-bottom small {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .footer-bottom a {
+      color: #ccc;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -256,59 +417,139 @@
       </div>
     </div>
   </div>
-    <section style="padding: 30px; color: rgb(239, 4, 4);">
-        <h2>Trending Now</h2>
-        <div class="trending-row">
-            <div class="trend-card"><img
-                    src="https://dnm.nflximg.net/api/v6/ALnfVbMvPhqZAIuQMLkxmdJcXYk/AAAAQYPxOwvSjztxhcGZE0LNrnWvM-S1jJRvg9Hhrgy8QCxws1VyZMBN3_6HHzQKpX27HLEKsydO6AjBB4Jr9eAKqe04mlzp7T482Y6pV1cV9Tcah7yU3nUWd0lza9Y1tEOGYiBMM5qYulY7UiWdhVyoDj86Uu9Yh2aAAgVNPZ7b_eaJ2Z_5qFg52EEhsDoCcJ_5r74-RL55oBN-6hqg4ufXvKj406nuIN2aKDmbRgP1S49uuMcgoZvhn_e_SwqSfY8AkGgWp44ouNOGX-uQzw.jpg?r=3a5"
-                    style="width: 380px; height: 370px;"><span>1</span></div>
-            <div class="trend-card"><img
-                    src="https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQb_x9BwxzirfmWBblQm8niUgkHwhnhj7PnS6f1zAJVdTtayeYpfb3K08z6-EfM0z2TnnZ4kXzlfzxeR6pwnesLoTl1G4NTCN_BYGMC-xzSbBw93N1c_57bS2cqLigM2ZZjA2xk_dyCySjpYtiMGjxijb.jpg?r=7b4"
-                    style="width: 380px; height: 370px;"><span>2</span></div>
-            <div class="trend-card"><img
-                    src="https://hips.hearstapps.com/hmg-prod/images/best-action-movies-netflix-the-woman-king-64949b61c86b8.jpg?crop=1xw:1xh;center,top&resize=980:*"
-                    style="width: 380px; height: 370px;"><span>3</span></div>
-            <div class="trend-card"><img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8s_4c3ZcOVulLe0aoasFydWj_IX3OSYi-94JToJhQBgpsdVXU74Nya1Mp--19awGbKdc&usqp=CAU"
-                    style="width: 380px; height: 370px;"><span>4</span></div>
-            <div class="trend-card"><img
-                    src="https://hips.hearstapps.com/hmg-prod/images/best-feel-good-movies-netflix-finding-ohana-1634593873.jpeg"
-                    style="width: 380px; height: 370px;"><span>5</span></div>
-            <div class="trend-card"><img
-                    src="https://images.filmibeat.com/webp/ph-big/2024/11/upcoming-malayalam-ott-releases-on-amazon-prime-netflix-zee5-disneyhotstar-and-more1732351323_0.jpg"
-                    style="width: 380px; height: 370px;"><span>6</span></div>
-        </div>
+  <section style="padding: 30px; color: rgb(239, 4, 4);">
+    <h2>Trending Now</h2>
+    <div class="trending-row">
+      <div class="trend-card"><img
+          src="https://dnm.nflximg.net/api/v6/ALnfVbMvPhqZAIuQMLkxmdJcXYk/AAAAQYPxOwvSjztxhcGZE0LNrnWvM-S1jJRvg9Hhrgy8QCxws1VyZMBN3_6HHzQKpX27HLEKsydO6AjBB4Jr9eAKqe04mlzp7T482Y6pV1cV9Tcah7yU3nUWd0lza9Y1tEOGYiBMM5qYulY7UiWdhVyoDj86Uu9Yh2aAAgVNPZ7b_eaJ2Z_5qFg52EEhsDoCcJ_5r74-RL55oBN-6hqg4ufXvKj406nuIN2aKDmbRgP1S49uuMcgoZvhn_e_SwqSfY8AkGgWp44ouNOGX-uQzw.jpg?r=3a5"
+          style="width: 380px; height: 370px;"><span>1</span></div>
+      <div class="trend-card"><img
+          src="https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQb_x9BwxzirfmWBblQm8niUgkHwhnhj7PnS6f1zAJVdTtayeYpfb3K08z6-EfM0z2TnnZ4kXzlfzxeR6pwnesLoTl1G4NTCN_BYGMC-xzSbBw93N1c_57bS2cqLigM2ZZjA2xk_dyCySjpYtiMGjxijb.jpg?r=7b4"
+          style="width: 380px; height: 370px;"><span>2</span></div>
+      <div class="trend-card"><img
+          src="https://hips.hearstapps.com/hmg-prod/images/best-action-movies-netflix-the-woman-king-64949b61c86b8.jpg?crop=1xw:1xh;center,top&resize=980:*"
+          style="width: 380px; height: 370px;"><span>3</span></div>
+      <div class="trend-card"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8s_4c3ZcOVulLe0aoasFydWj_IX3OSYi-94JToJhQBgpsdVXU74Nya1Mp--19awGbKdc&usqp=CAU"
+          style="width: 380px; height: 370px;"><span>4</span></div>
+      <div class="trend-card"><img
+          src="https://hips.hearstapps.com/hmg-prod/images/best-feel-good-movies-netflix-finding-ohana-1634593873.jpeg"
+          style="width: 380px; height: 370px;"><span>5</span></div>
+      <div class="trend-card"><img
+          src="https://images.filmibeat.com/webp/ph-big/2024/11/upcoming-malayalam-ott-releases-on-amazon-prime-netflix-zee5-disneyhotstar-and-more1732351323_0.jpg"
+          style="width: 380px; height: 370px;"><span>6</span></div>
+    </div>
   </section>
 
-    <section style="padding: 30px;">
-        <h2 style="color: red; margin-bottom: 20px;">More reasons to join</h2>
-        <div class="reasons-row">
-            <div class="reason-card">
-                <h3>Enjoy on your TV</h3>
-                <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
-                <span>📺</span>
-            </div>
-            <div class="reason-card">
-                <h3>Download your shows to watch offline</h3>
-                <p>Save your favourites easily and always have something to watch.</p>
-                <span>📥</span>
-            </div>
-            <div class="reason-card">
-                <h3>Watch everywhere</h3>
-                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
-                <span>📱</span>
-            </div>
-            <div class="reason-card">
-                <h3>Create profiles for kids</h3>
-                <p>Send kids on adventures with their favourite characters in a space made just for them.</p>
-                <span>🎭</span>
-            </div>
-        </div>
+  <section style="padding: 30px;">
+    <h2 style="color: red; margin-bottom: 20px;">More reasons to join</h2>
+    <div class="reasons-row">
+      <div class="reason-card">
+        <h3>Enjoy on your TV</h3>
+        <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+        <span>📺</span>
+      </div>
+      <div class="reason-card">
+        <h3>Download your shows to watch offline</h3>
+        <p>Save your favourites easily and always have something to watch.</p>
+        <span>📥</span>
+      </div>
+      <div class="reason-card">
+        <h3>Watch everywhere</h3>
+        <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+        <span>📱</span>
+      </div>
+      <div class="reason-card">
+        <h3>Create profiles for kids</h3>
+        <p>Send kids on adventures with their favourite characters in a space made just for them.</p>
+        <span>🎭</span>
+      </div>
+    </div>
   </section>
 
-  <div class="footer">
-    <p>© 2025 Netflix Clone. Designed for educational purposes.</p>
-  </div>
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <details class="faq">
+      <summary>What is Netflix?</summary>
+      <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime,
+        documentaries, and more.</p>
+    </details>
+
+    <details class="faq">
+      <summary>How much does Netflix cost?</summary>
+      <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one low fixed monthly
+        fee.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Where can I watch?</summary>
+      <p>You can watch on multiple devices anywhere with an internet connection.</p>
+    </details>
+
+    <details class="faq">
+      <summary>How do I cancel?</summary>
+      <p>Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account
+        online in two clicks.</p>
+    </details>
+
+    <details class="faq">
+      <summary>What can I watch on Netflix?</summary>
+      <p>You can watch TV shows, movies, documentaries, and much more across all genres.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Is Netflix good for kids?</summary>
+      <p>Yes, there's a Netflix Kids experience with parental controls and kid-friendly content.</p>
+    </details>
+  </section>
+  <footer class="footer">
+    <div class="footer-top">
+      <p>Ready to watch? Enter your email to create or restart your membership.</p>
+      <div class="footer-email">
+        <input type="email" placeholder="Email address" />
+        <button>Get Started &nbsp; ➤</button>
+      </div>
+    </div>
+
+    <p class="footer-call">Questions? Call <a href="#">000-800-919-1743</a></p>
+
+    <div class="footer-links">
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Investor Relations</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Speed Test</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Help Centre</a></li>
+        <li><a href="#">Jobs</a></li>
+        <li><a href="#">Cookie Preferences</a></li>
+        <li><a href="#">Legal Notices</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Account</a></li>
+        <li><a href="#">Ways to Watch</a></li>
+        <li><a href="#">Corporate Information</a></li>
+        <li><a href="#">Only on Netflix</a></li>
+      </ul>
+      <ul>
+        <li><a href="#">Media Centre</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-bottom">
+      <select>
+        <option> English</option>
+      </select>
+      <p>Netflix India</p>
+      <small>@2025 Netflix. Designed for educational purposes<a href="#">Learn more.</a></small>
+    </div>
+  </footer>
+
 
 </body>
+
 </html>
